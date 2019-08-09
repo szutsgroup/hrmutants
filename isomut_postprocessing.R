@@ -76,6 +76,7 @@ indel <- read.delim(file.path(outDir, "all_indels.isomut"))\
 indel$sample <- substr(indel$X.sample_name, 0, 5)\
 \
 #Fischer scores separately for insertions and deletions\
+#first insertions\
 ins <- filter(indel, type == "INS")\
 cins <- matrix(0, ncol = samplenum, nrow = 201)\
 for (i in 1:201) \{ \
@@ -88,6 +89,7 @@ cinsm <- melt(cins, id = "treshold")\
 cinsm$status <- ifelse(cinsm$variable %in% setdiff(treat_list$starting_clone, problematic), "starting clone", "other")\
 ggplot(data = cinsm, aes(x = treshold, y = log(value, base = 10), group = variable, color = status)) + geom_line() + ylab("log10 (Insertion number)") + xlab("Score treshold") + geom_hline(yintercept = log10(1), linetype = 2)\
 \
+#deletions\
 del <- filter(indel, type == "DEL")\
 cdel <- matrix(0, ncol = samplenum, nrow = 201)\
 for (i in 1:201) \{ \
