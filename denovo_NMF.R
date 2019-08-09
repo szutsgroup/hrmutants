@@ -61,7 +61,7 @@ write.table(mut_mat, file = "triplet_mutation_matrix.txt", sep = "\\t", quote = 
 humanized <- nmf_res_2$signatures / (triplets96$Gallus.gallus * sum(as.numeric(seqlengths(Ggallus)))) * (triplets96$Homo.sapiens * sum(as.numeric(seqlengths(Hsapiens))))\
 \
 \
-#cosine similaryity and Spearman correlation\
+#cosine similarity and Spearman correlation\
 cos_sim_denovo_signatures_hum = cos_sim_matrix(humanized, cancer_signatures)\
 cancer_signatures <- read.delim("https://cancer.sanger.ac.uk/cancergenome/assets/signatures_probabilities.txt", stringsAsFactors = FALSE)[,1:33]\
 cos_sim_denovo_signatures_hum %>% \
