@@ -1,2 +1,0 @@
-# hrmutants
-supplementary scripts
